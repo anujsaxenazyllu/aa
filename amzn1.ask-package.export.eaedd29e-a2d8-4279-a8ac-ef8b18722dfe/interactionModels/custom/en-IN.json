@@ -1,0 +1,128 @@
+{
+  "interactionModel": {
+    "languageModel": {
+      "invocationName": "let add",
+      "intents": [
+        {
+          "name": "AMAZON.CancelIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.HelpIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.StopIntent",
+          "samples": []
+        },
+        {
+          "name": "HelloWorldIntent",
+          "slots": [],
+          "samples": [
+            "hello",
+            "how are you",
+            "say hi world",
+            "say hi",
+            "hi",
+            "say hello world",
+            "say hello"
+          ]
+        },
+        {
+          "name": "AMAZON.NavigateHomeIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.FallbackIntent",
+          "samples": []
+        },
+        {
+          "name": "SumUpIntent",
+          "slots": [
+            {
+              "name": "firstnumber",
+              "type": "AMAZON.NUMBER",
+              "samples": [
+                "number is {firstnumber}"
+              ]
+            },
+            {
+              "name": "secondnumber",
+              "type": "AMAZON.NUMBER",
+              "samples": [
+                "number is {secondnumber}"
+              ]
+            }
+          ],
+          "samples": [
+            "sum of {firstnumber} and {secondnumber}",
+            "add {firstnumber} and {secondnumber}"
+          ]
+        }
+      ],
+      "types": []
+    },
+    "dialog": {
+      "intents": [
+        {
+          "name": "SumUpIntent",
+          "confirmationRequired": true,
+          "prompts": {
+            "confirmation": "Confirm.Intent.995784290911"
+          },
+          "slots": [
+            {
+              "name": "firstnumber",
+              "type": "AMAZON.NUMBER",
+              "elicitationRequired": true,
+              "confirmationRequired": false,
+              "prompts": {
+                "elicitation": "Elicit.Slot.995784290911.121661587100"
+              }
+            },
+            {
+              "name": "secondnumber",
+              "type": "AMAZON.NUMBER",
+              "elicitationRequired": true,
+              "confirmationRequired": false,
+              "prompts": {
+                "elicitation": "Elicit.Slot.995784290911.213473838110"
+              }
+            }
+          ]
+        }
+      ],
+      "delegationStrategy": "ALWAYS"
+    },
+    "prompts": [
+      {
+        "id": "Elicit.Slot.995784290911.121661587100",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "what is the first number"
+          }
+        ]
+      },
+      {
+        "id": "Elicit.Slot.995784290911.213473838110",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "what is the second number"
+          }
+        ]
+      },
+      {
+        "id": "Confirm.Intent.995784290911",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "number are {firstnumber} and {secondnumber}"
+          }
+        ]
+      }
+    ]
+  },
+  "version": "5"
+}
